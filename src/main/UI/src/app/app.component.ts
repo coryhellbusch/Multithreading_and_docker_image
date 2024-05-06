@@ -57,6 +57,7 @@ export class AppComponent implements OnInit{
 
 
       );
+
     }
     reserveRoom(value:string){
       this.request = new ReserveRoomRequest(value, this.currentCheckInVal, this.currentCheckOutVal);
@@ -87,7 +88,10 @@ export class AppComponent implements OnInit{
        return this.httpClient.get(this.baseURL + '/room/reservation/v1?checkin='+ this.currentCheckInVal + '&checkout='+this.currentCheckOutVal, {responseType: 'json'});
     }
 
-  }
+  protected readonly Number = Number;
+  protected readonly parseInt = parseInt;
+  protected readonly Math = Math;
+}
 
 
 
@@ -103,6 +107,8 @@ export interface Room{
   id:string;
   roomNumber:string;
   price:string;
+  priceCAD:string;
+  priceEUR:string;
   links:string;
 
 }
